@@ -4,13 +4,10 @@ def errorMessage():
      print("\n\t----------------------------------------") 
      print("\t|(((( Please just enter numbers!!! ))))|")
      print("\t----------------------------------------")
-
 def buyBuy():
     print("\n\n\n\n\t**********************************************")
     print("\t*** Thank you for your using our services! ***")
-    print("\t**********************************************\n\n\n\n\n")
-    
-
+    print("\t**********************************************\n\n\n\n\n")  
 def EnterAccountNum():   
     while True:
         try:      
@@ -23,7 +20,6 @@ def EnterAccountNum():
                 print("\n\n\t-->Account already exist<--")    
         except:
             errorMessage()
-
 def AdmAnAccount(menuAdm1):  
     while True:
         try:              
@@ -35,27 +31,28 @@ def AdmAnAccount(menuAdm1):
             if menuAdm2 == 1:  
                 os.system('cls')
                 menuWithdraw = int(input("\n\n\tEnter amount to withdraw> "))
-                if menuWithdraw <= BankAccounts[menuAdm1] and BankAccounts[menuAdm1] > 0:
+                if menuWithdraw <= BankAccounts[menuAdm1] and menuWithdraw > 0:
                     BankAccounts[menuAdm1] -= menuWithdraw
                     print("\t-------")
                 else:
-                     print(f"\n\tThe amount is too high your balance is only --> {BankAccounts[menuAdm1]}" )                  
+                     print(f"\n\tInvalid amount your balance is only --> {BankAccounts[menuAdm1]} €" )                  
             elif menuAdm2 == 2:
                  os.system('cls')
                  menuInsert = int(input("\n\n\tEnter amount to insert> "))
-                 BankAccounts[menuAdm1] += menuInsert
-                 print("\t+++++++") 
+                 if menuInsert < 0:
+                    print(f"\n\tTo low cant accept amount below zero! " )  
+                 else:                      
+                     BankAccounts[menuAdm1] += menuInsert
+                     print("\t+++++++") 
             elif menuAdm2 == 3:
                 os.system('cls')
-                print(f"\n\n\tYour balance in current account number {menuAdm1} is {BankAccounts[menuAdm1]}" ) 
+                print(f"\n\n\tYour balance in current account number {menuAdm1} is {BankAccounts[menuAdm1]} €" ) 
                 print("\t---------------------------------------------------",)
             elif menuAdm2 == 4:
                 os.system('cls')
-                break               
-            
+                break                          
         except:
-            errorMessage()  
-            
+            errorMessage()              
 while True:
     try:
         print("\n\n\t**********MAIN MENU*********")
@@ -75,8 +72,7 @@ while True:
                 print("\n\tAccount does not exist!")
         elif menuMain == 3:
             buyBuy()
-            break
-                             
+            break                            
     except:
         errorMessage()
        

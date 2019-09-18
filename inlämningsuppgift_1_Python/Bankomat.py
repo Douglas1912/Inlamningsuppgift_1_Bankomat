@@ -1,6 +1,6 @@
 import os
 BankAccounts = {}
-
+dfdfd
 def errorMessage():
      print("\n\t----------------------------------------") 
      print("\t|(((( Please just enter numbers!!! ))))|")
@@ -36,7 +36,7 @@ def AdmAnAccount(menuAdm1):
             if menuAdm2 == 1:  
                 os.system('cls')
                 menuWithdraw = int(input("\n\n\tEnter amount to withdraw> "))
-                if menuWithdraw < BankAccounts[menuAdm1]:
+                if menuWithdraw <= BankAccounts[menuAdm1] and BankAccounts[menuAdm1] > 0:
                     BankAccounts[menuAdm1] -= menuWithdraw
                     print("\t-------")
                 else:

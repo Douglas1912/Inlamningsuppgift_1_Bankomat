@@ -27,8 +27,8 @@ def LoginMenu(loginToAccount):
             print("\t2. Insert money>")
             print("\t3. Show balance>")
             print("\t4. Exit ")
-            SelectInLoginMenu = int(input("\n\tSelect menu options> "))                           
-            if SelectInLoginMenu == 1:  
+            selectInLoginMenu = int(input("\n\tSelect menu options> "))                           
+            if selectInLoginMenu == 1:  
                 os.system('cls')
                 menuWithdraw = int(input("\n\n\tEnter amount to withdraw> "))
                 if menuWithdraw <= BankAccounts[loginToAccount] and menuWithdraw > 0:
@@ -36,7 +36,7 @@ def LoginMenu(loginToAccount):
                     print("\t-------")
                 else:
                      print(f"\n\tInvalid amount your balance is only --> {BankAccounts[loginToAccount]} €" )                  
-            elif SelectInLoginMenu == 2:
+            elif selectInLoginMenu == 2:
                  os.system('cls')
                  menuInsert = int(input("\n\n\tEnter amount to insert> "))
                  if menuInsert < 0:
@@ -44,11 +44,11 @@ def LoginMenu(loginToAccount):
                  else:                      
                      BankAccounts[loginToAccount] += menuInsert
                      print("\t+++++++") 
-            elif SelectInLoginMenu == 3:
+            elif selectInLoginMenu == 3:
                  os.system('cls')
                  print(f"\n\n\tYour balance in current account number {loginToAccount} is {BankAccounts[loginToAccount]} €" ) 
                  print("\t---------------------------------------------------",)
-            elif SelectInLoginMenu == 4:
+            elif selectInLoginMenu == 4:
                  os.system('cls')
                  break                          
         except:
@@ -60,17 +60,17 @@ while True:
         print("\t* 2. Login to account      *")
         print("\t* 3. Exit                  *")
         print("\t****************************")
-        SelectInMainMenu = int(input("\tSelect menu options> ")) 
+        selectInMainMenu = int(input("\tSelect menu options> ")) 
         os.system('cls')
-        if SelectInMainMenu == 1:
+        if selectInMainMenu == 1:
             EnterAccountNum()            
-        elif SelectInMainMenu == 2:
+        elif selectInMainMenu == 2:
              loginToAccount = int(input("\n\n\tEnter existing account number> "))
              if loginToAccount in BankAccounts:              
                 LoginMenu(loginToAccount)
              else:
                 print("\n\tAccount does not exist!")
-        elif SelectInMainMenu == 3:
+        elif selectInMainMenu == 3:
             byeBye()
             break                            
     except:
